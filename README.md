@@ -1,4 +1,4 @@
-# re_plant_app
+# Plant App
 
 A new Flutter project.
 
