@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:re_plant_app/models/plant_card.dart';
 import 'package:re_plant_app/screens/home/components/header_with_search_bar.dart';
+import 'package:re_plant_app/screens/home/components/recently_featured_plants.dart';
+import 'package:re_plant_app/screens/home/components/recommended_plants.dart';
 import 'package:re_plant_app/screens/home/components/title_with_more_button.dart';
+import 'package:re_plant_app/shared/constants.dart';
 
 
 class Body extends StatelessWidget {
@@ -18,19 +20,21 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           HeaderWithSearchBar(size: size),
+          const SizedBox(height: 6,),
           TitleWithMoreButton(
             title: "Recommended",
-            press: () {},
+            press: () => print("more1"),
           ),
-          PlantCard(
-            image: "assets/images/image_1.png",
-            name: "samantha",
-            country: "russia",
-            price: 400,
-            press: () {},
-          )
+          const RecommendedPlants(),
+          const SizedBox(height: 10,),
+          TitleWithMoreButton(
+            title: "Recently Featured",
+            press: ()  => print("more2"),
+          ),
+          const RecentlyFeaturedPlants(),
         ]
       ),
     );
   }
 }
+

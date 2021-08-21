@@ -6,7 +6,7 @@ class PlantCard extends StatelessWidget {
   const PlantCard({Key key, this.image, this.name, this.country, this.price, this.press,}) : super(key: key);
 
   final String image, name, country;
-  final int price;
+  final double price;
   final Function press;
 
   @override
@@ -18,7 +18,7 @@ class PlantCard extends StatelessWidget {
       margin: const EdgeInsets.only(
         top: kDefaultPadding / 2,
         bottom: kDefaultPadding,
-        left: kDefaultPadding * 2.5,
+        left: kDefaultPadding * 1.4,
       ),
       child: Column(
         children: [
@@ -41,32 +41,13 @@ class PlantCard extends StatelessWidget {
                   bottomRight: Radius.circular(10),
                 )
               ),
-              child: Column(
-                // children: [
-                //   RichText(
-                //     text: TextSpan(
-                //       children: [
-                //         TextSpan(
-                //           text: "samantha\n".toUpperCase(),
-                //           style: Theme.of(context).textTheme.button,
-          
-                //         ),
-                //         TextSpan(
-                //           text: "russia".toUpperCase(),
-                //           style: TextStyle(color: kPrimaryColor.withOpacity(0.5)),
-          
-                //         ),
-                //       ]
-                //     )
-                //   ),
-                //   Text(
-                //     "\$400",
-                //     style: Theme.of(context).textTheme.button.copyWith(color: kPrimaryColor),
-                //   )
-                // ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // name and country
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         name.toUpperCase(),
@@ -75,6 +56,19 @@ class PlantCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      Text( 
+                        country.toUpperCase(),
+                        style: TextStyle(
+                          //fontWeight: FontWeight.bold,
+                          color: kPrimaryColor.withOpacity(0.6),
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
+                  ),
+                  // price
+                  Column(
+                    children: [
                       Text(
                         "\$$price",
                         style: TextStyle(
@@ -83,18 +77,6 @@ class PlantCard extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 2,),
-                  Row(
-                    children: [
-                      Text(
-                        country.toUpperCase(),
-                        style: TextStyle(
-                          //fontWeight: FontWeight.bold,
-                          color: kPrimaryColor.withOpacity(0.6),
-                        ),
-                      ),
-                    ],           
                   ),
                 ],                   
               ),
