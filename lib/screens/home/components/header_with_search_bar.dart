@@ -13,7 +13,7 @@ class HeaderWithSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: kDefaultPadding),
+      margin: const EdgeInsets.only(bottom: kDefaultPadding),
       height: size.height *0.2,
       child: Stack(
         children: [
@@ -40,7 +40,7 @@ class HeaderWithSearchBar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset(
                   "assets/images/logo.png",
                   // scale: 0.1,

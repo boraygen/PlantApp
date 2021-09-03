@@ -1,7 +1,7 @@
 class Plant
 {
-  final String image, name, country;
+  final String imageSmall, imageBig, name, country, description;
   final double price;
 
-  Plant({this.image, this.name, this.country, this.price});
+  Plant({this.imageSmall, this.imageBig, this.name, this.country, this.price, this.description});
 }

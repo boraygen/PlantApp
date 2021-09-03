@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:re_plant_app/models/plant/plant_list.dart';
 import 'package:re_plant_app/models/plant_card.dart';
+import 'package:re_plant_app/screens/details/details_screen.dart';
+import 'package:re_plant_app/shared/constants.dart';
 
 
 class RecommendedPlants extends StatelessWidget {
@@ -7,33 +10,25 @@ class RecommendedPlants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          PlantCard(
-            image: "assets/images/image_1.png",
-            name: "samantha",
-            country: "russia",
-            price: 169.49,
-            press: ()  => print("samantha"),
-          ),
-          PlantCard(
-            image: "assets/images/image_2.png",
-            name: "angelica",
-            country: "poland",
-            price: 179.99,
-            press: () => print("angelica"),
-          ),
-          PlantCard(
-            image: "assets/images/image_3.png",
-            name: "niki",
-            country: "brazil",
-            price: 89.49,
-            press: () => print("niki"),
-          ),
-          const SizedBox(width: 15,)
-        ],
+    return SizedBox(
+      height: 275,
+      child: ListView.builder(
+        padding: const EdgeInsets.only(right: kDefaultPadding / 2),
+        scrollDirection: Axis.horizontal,
+        itemCount: plantList.length,
+        itemBuilder: (context, index)
+        {
+          return PlantCard(
+            //number: index,
+            plant: plantList[index],
+            press: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailsScreen(page: index) 
+              ),  
+            ),
+          );
+        },
       ),
     );
   }
